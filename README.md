@@ -18,7 +18,9 @@ Some peripherals are secure-only as well (e.g. VPU's interrupt controller, OTP, 
 
 ## The project
 
-Code in this repo is a WIP playground demonstrating some of VC4's security capabilities by replicating what the official firmware does.
+Code in this repo is a WIP playground demonstrating some of VC4's security capabilities by replicating what the official firmware does. The playground configures a secure software interrupt and a secure memory region, drops to supervisor mode. It contains an implementation of callable secure API functions and a few sanity checks for the hw.
+
+Compiles to a `start.elf`. Tested on rpi3, but should work on rpi0-2 as well.
 
 ## Credits
 
