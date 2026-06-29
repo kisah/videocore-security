@@ -24,7 +24,6 @@ void leave_secure_mode(void);
 .macro secure_function name
 .section .crypto
 .global \name
-\name:
 .endm
 
 .macro secure_api name
@@ -33,7 +32,6 @@ void leave_secure_mode(void);
     .long \name
 .section .crypto
 .global \name
-\name:
 .endm
 
 #endif

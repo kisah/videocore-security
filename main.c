@@ -36,13 +36,13 @@ SECURE_API(uint32_t, secure_read, void) {
 }
 
 SECURE_FUNCTION void set_interrupt(int intno, bool enable, int core) {
-  uint32_t base = (core == 0) ? IC0_BASE : IC1_BASE;
+    uint32_t base = (core == 0) ? IC0_BASE : IC1_BASE;
 
-  int offset = 0x10 + ((intno >> 3) << 2);
-  uint32_t slot = 0xF << ((intno & 7) << 2);
+    int offset = 0x10 + ((intno >> 3) << 2);
+    uint32_t slot = 0xF << ((intno & 7) << 2);
 
-  uint32_t v = *(uint32_t*)(base + offset) & ~slot;
-  *(uint32_t*)(base + offset) = enable ? v | slot : v;
+    uint32_t v = *(uint32_t*)(base + offset) & ~slot;
+    *(uint32_t*)(base + offset) = enable ? v | slot : v;
 }
 
 SECURE_FUNCTION void c_init(void) {

@@ -15,12 +15,14 @@ secure_function_call:
     rts
 
 secure_function leave_secure_mode
+leave_secure_mode:
     mov r0, 0
     st lr, (--sp)
     st r0, (--sp)
     rti
 
 secure_function secure_software_interrupt
+secure_software_interrupt:
     stm r6, lr, (--sp)
 
     lea r6, _secfns_start
@@ -52,6 +54,7 @@ secure_function secure_software_interrupt
     rti
 
 secure_api secure_function_lookup
+secure_function_lookup:
     lea r1, _secfns_start
 
     lea r2, _secfns_end
