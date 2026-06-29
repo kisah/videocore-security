@@ -29,9 +29,9 @@ secure_software_interrupt:
     shl r0, 2
     add r6, r0
     cmp r6, _secfns_end
-    bge 1f
+    bhs 1f
     cmp r6, _secfns_start
-    blt 1f
+    blo 1f
 
     ld r6, (r6)
 
@@ -44,10 +44,10 @@ secure_software_interrupt:
     bl r6
 
     b 2f
-    
+
 1:
     mov r0, -1
-    
+
 2:
     ld r6, (sp++)
     ld lr, (sp++)
